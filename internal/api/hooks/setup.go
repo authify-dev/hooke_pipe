@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
 )
 
 func getenv(k, def string) string {
@@ -17,10 +16,10 @@ func getenv(k, def string) string {
 	return def
 }
 
-func SetupHookPipeModule(r *gin.Engine, db *gorm.DB) {
+func SetupHookPipeModule(r *gin.Engine) {
 
 	// Repositories
-	hooksRepository := hooks_postgres.NewHooksPostgresRepository(db)
+	hooksRepository := hooks_postgres.NewHooksPostgresRepository(nil)
 
 	// Services
 	hooksService := services.NewHookPipeService(hooksRepository)

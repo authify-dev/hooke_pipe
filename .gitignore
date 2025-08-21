@@ -29,3 +29,5 @@ go.work
 .envs
 .vscode
 *.db
+
+__debug_bin*

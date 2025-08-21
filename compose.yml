@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    environment:
+      - ENVIRONMENT=local
+      - PORT=8000
+      - RABBIT_URL=amqp://root:password@209.126.13.207:5672/
+      - QUEUE=c0eec920-7731-426d-b458-c148a7778de6
+      - EXCHANGE=webhooks
+      - BINDING_KEY=c0eec920-7731-426d-b458-c148a7778de6.#
+      - TARGET_BASE=http://localhost:9001
+    ports:
+      - "8000:8000"
